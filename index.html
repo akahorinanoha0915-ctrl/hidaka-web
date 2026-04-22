@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日高 俊夫 / Toshio Hidaka — 武庫川女子大学</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --ink:      #111118;
+  --ink-2:    #2a2a3a;
+  --cream:    #f5f0e8;
+  --cream-2:  #ede6d8;
+  --crimson:  #8b2635;
+  --gold:     #c49a3c;
+  --muted:    #7a7a8c;
+  --border:   rgba(17,17,24,0.12);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Noto Sans JP', 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+/* ─── NOISE TEXTURE OVERLAY ─── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* ─── NAVIGATION ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 3rem;
+  background: rgba(245,240,232,0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-logo span { color: var(--crimson); }
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--ink); }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 72px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6rem 4rem 6rem 5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--crimson);
+}
+
+.hero-eyebrow span {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  font-weight: 400;
+}
+
+.hero-name-ja {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+.hero-name-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.06em;
+}
+
+.hero-affiliation {
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+  padding-left: 1.2rem;
+  border-left: 2px solid var(--cream-2);
+}
+
+.hero-affiliation strong {
+  display: block;
+  color: var(--ink);
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+}
+
+.tag {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--muted);
+  background: transparent;
+  transition: all 0.2s;
+}
+
+.tag:hover {
+  border-color: var(--crimson);
+  color: var(--crimson);
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: var(--ink);
+  color: var(--cream);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover { background: var(--crimson); }
+
+.btn-secondary {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.2s;
+}
+
+.btn-secondary:hover { color: var(--ink); }
+.btn-secondary::after { content: '→'; }
+
+/* ─── HERO RIGHT (Photo area) ─── */
+.hero-right {
+  position: relative;
+  background: var(--ink-2);
+  overflow: hidden;
+}
+
+.hero-right::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(139,38,53,0.15) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hero-kanji-bg {
+  position: absolute;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 28vw;
+  font-weight: 600;
+  color: rgba(255,255,255,0.03);
+  right: -2vw;
+  bottom: -2vw;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  opacity: 0.85;
+  mix-blend-mode: luminosity;
+  filter: contrast(1.05) brightness(0.9);
+}
+
+.photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(17,17,24,0.7) 0%, transparent 50%);
+  z-index: 2;
+}
+
+.hero-vertical-text {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: center;
+  font-size: 0.58rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+  white-space: nowrap;
+  z-index: 3;
+}
+
+.photo-label {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 3;
+}
+
+.photo-label p {
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+.photo-label .photo-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.08em;
+  margin-top: 0.3rem;
+}
+
+/* ─── SCROLL INDICATOR ─── */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  z-index: 5;
+}
+
+.scroll-line {
+  width: 40px;
+  height: 1px;
+  background: var(--muted);
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-line::after {
+  content: '';
+  position: absolute;
+  left: -100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--crimson);
+  animation: scrollAnim 2s ease-in-out infinite;
+}
+
+@keyframes scrollAnim {
+  to { left: 100%; }
+}
+
+/* ─── SECTION COMMONS ─── */
+section { padding: 6rem 5rem; }
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.section-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.75rem;
+  color: var(--crimson);
+  letter-spacing: 0.15em;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--muted);
+  font-size: 0.7em;
+}
+
+.divider {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ─── RESEARCH MANIFESTO ─── */
+.manifesto {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 7rem 5rem;
+}
+
+.manifesto-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.manifesto-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: 1.5rem;
+}
+
+.manifesto-sidebar {
+  position: sticky;
+  top: 120px;
+}
+
+.manifesto-sidebar-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: rgba(245,240,232,0.5);
+  line-height: 2;
+  letter-spacing: 0.05em;
+}
+
+.manifesto-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--cream);
+  margin-bottom: 2.5rem;
+  border-left: 2px solid var(--crimson);
+  padding-left: 2rem;
+}
+
+.manifesto-body {
+  font-size: 0.88rem;
+  line-height: 2;
+  color: rgba(245,240,232,0.7);
+  margin-bottom: 1.5rem;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+}
+
+.manifesto-example {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 1.8rem 2rem;
+  margin: 2rem 0;
+}
+
+.manifesto-example p {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 0.88rem;
+  line-height: 2.2;
+  color: rgba(245,240,232,0.85);
+}
+
+.manifesto-example .bad {
+  color: rgba(245,240,232,0.4);
+  text-decoration: line-through;
+  text-decoration-color: var(--crimson);
+}
+
+.manifesto-example .ok { color: #c9b37a; }
+
+/* ─── RESEARCH AREAS ─── */
+.research-areas { background: var(--cream); }
+
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  background: var(--border);
+}
+
+.research-card {
+  background: var(--cream);
+  padding: 2.5rem;
+  transition: background 0.3s;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.research-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--crimson);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+
+.research-card:hover { background: var(--cream-2); }
+.research-card:hover::before { transform: scaleX(1); }
+
+.rc-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--cream-2);
+  position: absolute;
+  top: 1.5rem; right: 1.5rem;
+  line-height: 1;
+  transition: color 0.3s;
+}
+
+.research-card:hover .rc-num { color: rgba(139,38,53,0.15); }
+
+.rc-icon {
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+  opacity: 0.7;
+}
+
+.rc-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+  line-height: 1.3;
+}
+
+.rc-title-ja {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+}
+
+.rc-desc {
+  font-size: 0.8rem;
+  line-height: 1.9;
+  color: var(--muted);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+}
+
+.rc-keywords {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.rc-kw {
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.6rem;
+  background: var(--cream-2);
+  color: var(--muted);
+  transition: all 0.2s;
+}
+
+.research-card:hover .rc-kw {
+  background: rgba(139,38,53,0.08);
+  color: var(--crimson);
+}
+
+/* ─── PUBLICATIONS ─── */
+.publications { background: var(--cream-2); }
+
+.pub-list { display: flex; flex-direction: column; gap: 0; }
+
+.pub-item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 2rem;
+  align-items: start;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border);
+  transition: all 0.2s;
+}
+
+.pub-item:hover { padding-left: 0.5rem; }
+
+.pub-year {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--crimson);
+  line-height: 1;
+  padding-top: 0.2rem;
+}
+
+.pub-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+
+.pub-title a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.pub-title a:hover {
+  color: var(--crimson);
+  border-bottom-color: var(--crimson);
+}
+
+.pub-venue {
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+}
+
+.pub-type {
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  white-space: nowrap;
+  align-self: start;
+}
+
+.pub-type.book {
+  border-color: var(--crimson);
+  color: var(--crimson);
+}
+
+/* ─── PROFILE SECTION ─── */
+.profile-section {
+  background: var(--cream);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+}
+
+.profile-text {
+  font-size: 0.88rem;
+  line-height: 2.1;
+  color: var(--ink-2);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+.profile-pull {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--crimson);
+  border-left: 2px solid var(--crimson);
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  line-height: 1.7;
+}
+
+.profile-photo-card {
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-photo-card img {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: grayscale(20%) contrast(1.02);
+}
+
+.profile-photo-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(139,38,53,0.2);
+  pointer-events: none;
+}
+
+.profile-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2.5rem;
+}
+
+.profile-info-table tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.profile-info-table td {
+  padding: 0.9rem 0;
+  font-size: 0.8rem;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  vertical-align: top;
+}
+
+.profile-info-table td:first-child {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  width: 120px;
+  padding-right: 1rem;
+  padding-top: 1rem;
+}
+
+.univ-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.univ-logo-row img {
+  height: 28px;
+  width: auto;
+  opacity: 0.7;
+  filter: grayscale(100%);
+}
+
+.society-list {
+  list-style: none;
+}
+
+.society-list li {
+  padding: 0.6rem 0;
+  font-size: 0.8rem;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  color: var(--ink);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.society-list li::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  background: var(--crimson);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ─── CONTACT ─── */
+.contact {
+  background: var(--ink);
+  color: var(--cream);
+  text-align: center;
+  padding: 7rem 5rem;
+}
+
+.contact-eyebrow {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: 1.5rem;
+}
+
+.contact-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  color: var(--cream);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.contact-sub {
+  font-size: 0.82rem;
+  color: rgba(245,240,232,0.5);
+  margin-bottom: 3rem;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+}
+
+.contact-email {
+  display: inline-block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--cream);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(245,240,232,0.3);
+  padding-bottom: 0.3rem;
+  margin-bottom: 3rem;
+  letter-spacing: 0.04em;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.contact-email:hover {
+  border-color: var(--crimson);
+  color: var(--gold);
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.4);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s;
+}
+
+.contact-link:hover { color: var(--cream); }
+.contact-link::before { content: '↗'; font-size: 0.7rem; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: #0c0c14;
+  color: rgba(245,240,232,0.25);
+  padding: 1.5rem 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-left > * {
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+.hero-left > *:nth-child(2) { animation-delay: 0.25s; }
+.hero-left > *:nth-child(3) { animation-delay: 0.35s; }
+.hero-left > *:nth-child(4) { animation-delay: 0.45s; }
+.hero-left > *:nth-child(5) { animation-delay: 0.55s; }
+.hero-left > *:nth-child(6) { animation-delay: 0.65s; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { height: 55vw; min-height: 280px; }
+  .hero-left { padding: 4rem 2rem; }
+  section { padding: 4rem 2rem; }
+  nav { padding: 1rem 2rem; }
+  .nav-links { display: none; }
+  .manifesto { padding: 4rem 2rem; }
+  .manifesto-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .research-grid { grid-template-columns: 1fr; }
+  .profile-section { grid-template-columns: 1fr; gap: 3rem; }
+  .contact { padding: 4rem 2rem; }
+  footer { padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  .pub-item { grid-template-columns: 60px 1fr; }
+  .pub-type { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">日高 <span>俊夫</span></a>
+  <ul class="nav-links">
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#profile">Profile</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding:0">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <span>Linguist · Mukogawa Women's University</span>
+    </div>
+
+    <h1 class="hero-name-ja">日高 俊夫</h1>
+    <p class="hero-name-en">Toshio Hidaka</p>
+
+    <div class="hero-affiliation">
+      <strong>教授 — 武庫川女子大学</strong>
+      教育学部 教育学科<br>
+      博士（言語科学）
+    </div>
+
+    <div class="hero-tags">
+      <span class="tag">語彙意味論</span>
+      <span class="tag">形態論</span>
+      <span class="tag">統語論</span>
+      <span class="tag">語用論</span>
+      <span class="tag">複合動詞</span>
+      <span class="tag">英語教育</span>
+    </div>
+
+    <div class="hero-cta">
+      <a href="#research" class="btn-primary">研究を見る</a>
+      <a href="#contact" class="btn-secondary">連絡先</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-kanji-bg">語</div>
+    <div class="hero-photo">
+      <img src="hidaka-photo.png" alt="日高 俊夫 教授">
+    </div>
+    <div class="photo-overlay"></div>
+    <div class="hero-vertical-text">Mukogawa Women's University · Faculty of Education</div>
+    <div class="photo-label">
+      <p>Professor of Linguistics</p>
+      <p class="photo-name">Toshio Hidaka</p>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- RESEARCH MANIFESTO -->
+<div class="manifesto" id="research">
+  <div class="manifesto-grid">
+    <div class="manifesto-sidebar">
+      <p class="manifesto-label">Research Vision</p>
+      <div class="manifesto-sidebar-title">
+        語の意味が<br>どのように<br>文の構造と<br>コミュニケーション<br>を生み出すか
+      </div>
+    </div>
+
+    <div>
+      <blockquote class="manifesto-quote">
+        「母語話者の頭の中にある辞書（レキシコン）」と、<br>文の構造・コミュニケーションの繋がりを解き明かす。
+      </blockquote>
+
+      <p class="manifesto-body">
+        日常の「ちょっとした違和感」から言語の仕組みを読み解く。例えば、次の二つの文を比べてみると――
+      </p>
+
+      <div class="manifesto-example">
+        <p><span class="ok">✓ ケンはそのコースを走り切った。</span></p>
+        <p><span class="bad">✗ 今朝は冷え切った。</span></p>
+        <br>
+        <p><span class="ok">✓ 花子は驚いたが、全く態度に出さなかった。</span></p>
+        <p><span class="bad">✗ 花子が驚いたが、全く態度に出さなかった。</span></p>
+      </div>
+
+      <p class="manifesto-body">
+        後者に覚える「座りの悪さ」「違和感」こそが、語の登録のあり方・文法的体系・コミュニケーションとの接続を問う窓口となる。このような問いを、形式的意味表示と統語分析を用いて厳密に追究している。
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- RESEARCH AREAS -->
+<section class="research-areas">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Research Areas <em>研究分野</em></h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="research-grid">
+    <div class="research-card">
+      <span class="rc-num">01</span>
+      <div class="rc-icon">⊕</div>
+      <h3 class="rc-title">V-V Compound Verbs</h3>
+      <p class="rc-title-ja">日本語 V-V 複合動詞の語形成</p>
+      <p class="rc-desc">「V-切る」「V-ぬく」などの統語的複合動詞について、形式的意味表示を用いた意味構造の分析と対応する統語構造の特定、および文法化プロセスにおける両複合動詞の位置付けを検討する。</p>
+      <div class="rc-keywords">
+        <span class="rc-kw">語形成</span>
+        <span class="rc-kw">意味構造</span>
+        <span class="rc-kw">文法化</span>
+        <span class="rc-kw">形式的意味表示</span>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <span class="rc-num">02</span>
+      <div class="rc-icon">◎</div>
+      <h3 class="rc-title">Semantics–Pragmatics Interface</h3>
+      <p class="rc-title-ja">意味論と語用論のインターフェース</p>
+      <p class="rc-desc">副詞「普通に」のような語の語用論的意味（客観化・対人化）を分析し、意味論と語用論の境界領域を追究する。語彙の意味がいかにしてコミュニケーション文脈に依存するかを明らかにする。</p>
+      <div class="rc-keywords">
+        <span class="rc-kw">語用論</span>
+        <span class="rc-kw">客観化</span>
+        <span class="rc-kw">対人化</span>
+        <span class="rc-kw">副詞意味論</span>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <span class="rc-num">03</span>
+      <div class="rc-icon">△</div>
+      <h3 class="rc-title">Lexicalism in Linguistics</h3>
+      <p class="rc-title-ja">語彙主義言語学</p>
+      <p class="rc-desc">概念意味論・生成語彙論・分散形態論・形式意味論を横断する語彙主義の枠組みから、語の意味と文法の関係を総合的に探究する。日本の語彙主義言語学コミュニティを牽引する編者として活動。</p>
+      <div class="rc-keywords">
+        <span class="rc-kw">概念意味論</span>
+        <span class="rc-kw">生成語彙論</span>
+        <span class="rc-kw">分散形態論</span>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <span class="rc-num">04</span>
+      <div class="rc-icon">◇</div>
+      <h3 class="rc-title">Adjective Infinitives</h3>
+      <p class="rc-title-ja">英語「形容詞的用法」不定詞の統語と意味</p>
+      <p class="rc-desc">英語不定詞の形容詞的用法について、特質構造（Qualia Structure）の観点から統語と意味解釈の関係を分析する。生成語彙論の枠組みを英語学に応用した研究。</p>
+      <div class="rc-keywords">
+        <span class="rc-kw">不定詞</span>
+        <span class="rc-kw">特質構造</span>
+        <span class="rc-kw">英語統語論</span>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <span class="rc-num">05</span>
+      <div class="rc-icon">○</div>
+      <h3 class="rc-title">Grammar Pedagogy</h3>
+      <p class="rc-title-ja">文法の指導法と英語教育</p>
+      <p class="rc-desc">文法をどう位置付け、実際の授業でどのような形で指導・活動を展開していくか——公立高校での教員経験を基盤に、理論言語学の知見を英語教育実践に橋渡しする研究を行う。</p>
+      <div class="rc-keywords">
+        <span class="rc-kw">文法教育</span>
+        <span class="rc-kw">英語指導法</span>
+        <span class="rc-kw">実践研究</span>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <span class="rc-num">06</span>
+      <div class="rc-icon">□</div>
+      <h3 class="rc-title">Global Human Development</h3>
+      <p class="rc-title-ja">グローバル人材育成教育</p>
+      <p class="rc-desc">グローバル人材育成教育学会関西支部長として、国際的視野を持つ人材育成のための英語教育カリキュラムと教授法の研究・普及に尽力している。</p>
+      <div class="rc-keywords">
+        <span class="rc-kw">国際教育</span>
+        <span class="rc-kw">グローバル人材</span>
+        <span class="rc-kw">カリキュラム</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section class="publications" id="publications">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Publications <em>主要業績</em></h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="pub-list">
+    <div class="pub-item">
+      <div class="pub-year">2024</div>
+      <div class="pub-content">
+        <p class="pub-title"><a href="https://ci.nii.ac.jp/ncid/BD09050477" target="_blank" rel="noopener">「普通に」における語用論的意味——客観化・対人化——</a></p>
+        <p class="pub-venue">岸本秀樹・日高俊夫・工藤和也 編『レキシコン研究の新視点——統語・語用と語の意味の関わり——』開拓社 第7章</p>
+      </div>
+      <span class="pub-type book">Book Chapter</span>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2024</div>
+      <div class="pub-content">
+        <p class="pub-title"><a href="https://ci.nii.ac.jp/ncid/BD09050477" target="_blank" rel="noopener">（共編著）『レキシコン研究の新視点——統語・語用と語の意味の関わり——』</a></p>
+        <p class="pub-venue">岸本秀樹・日高俊夫・工藤和也 編、開拓社</p>
+      </div>
+      <span class="pub-type book">Edited Book</span>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2022</div>
+      <div class="pub-content">
+        <p class="pub-title"><a href="https://cir.nii.ac.jp/crid/1390573242863891840" target="_blank" rel="noopener">統語的複合動詞「V-切る」「V-ぬく」の意味構造と統語——文法化における比較に向けて</a></p>
+        <p class="pub-venue">TALKS（Theoretical and Applied Linguistics at Kobe Shoin） No.25, pp.37–50</p>
+      </div>
+      <span class="pub-type">Journal</span>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2020</div>
+      <div class="pub-content">
+        <p class="pub-title"><a href="https://cir.nii.ac.jp/crid/2051714792008355968" target="_blank" rel="noopener">統語的複合動詞「V-ぬく」の意味と統語</a></p>
+        <p class="pub-venue">日本言語学会 第161回大会 発表</p>
+      </div>
+      <span class="pub-type">Conference</span>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2017</div>
+      <div class="pub-content">
+        <p class="pub-title"><a href="https://cir.nii.ac.jp/crid/1010000781908591872" target="_blank" rel="noopener">統語的複合動詞「V-切る」における意味構造と統語</a></p>
+        <p class="pub-venue">KLS（Kansai Linguistic Society） 37, pp.169–178</p>
+      </div>
+      <span class="pub-type">Journal</span>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2015</div>
+      <div class="pub-content">
+        <p class="pub-title"><a href="https://cir.nii.ac.jp/crid/1050282676649477888" target="_blank" rel="noopener">「形容詞的用法」不定詞の統語と意味解釈について</a></p>
+        <p class="pub-venue">九州国際大学国際関係学論集 第10巻1/2号, pp.103–121</p>
+      </div>
+      <span class="pub-type">Journal</span>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2011</div>
+      <div class="pub-content">
+        <p class="pub-title"><a href="https://researchmap.jp/ToshioHIDAKA/dissertations" target="_blank" rel="noopener">Word formation of Japanese v-v compounds</a></p>
+        <p class="pub-venue">博士論文、神戸松蔭女子学院大学大学院</p>
+      </div>
+      <span class="pub-type">Dissertation</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROFILE -->
+<section class="profile-section" id="profile">
+  <div class="profile-left">
+    <div class="section-header" style="margin-bottom:2.5rem">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Profile <em>プロフィール</em></h2>
+    </div>
+
+    <p class="profile-text">
+      日高俊夫教授は、大学卒業後に公立高校の英語教員として教壇に立ち、教育現場のリアリティを身をもって経験した後、理論言語学の道へと進んだ稀有なキャリアの持ち主だ。
+    </p>
+
+    <blockquote class="profile-pull">
+      「この『なんか変だな』という感覚こそが、母語話者の頭の中にある辞書（レキシコン）と繋がっている」
+    </blockquote>
+
+    <p class="profile-text">
+      神戸松蔭女子学院大学大学院文学研究科にて青木宣和教授のもとで修士・博士論文を執筆し、2011年に博士（言語科学）を取得。博士論文テーマは「日本語 V-V 複合動詞の語形成」であり、これが現在に至るすべての研究の核となっている。九州国際大学を経て、武庫川女子大学教育学部に着任。現在は教授として、中学校英語教員を目指す学生の言語学的素養の育成にあたっている。
+    </p>
+
+    <p class="profile-text">
+      近年は、語彙主義言語学の論文集の編者として存在感を増しており、2024年の『レキシコン研究の新視点』（開拓社）の刊行は、日本の理論言語学コミュニティに新たな知的地平を切り開くものとして注目されている。
+    </p>
+  </div>
+
+  <div class="profile-right">
+    <div class="profile-photo-card">
+      <img src="hidaka-photo.png" alt="日高 俊夫 教授">
+    </div>
+
+    <div class="univ-logo-row">
+      <img src="https://www.mukogawa-u.ac.jp/images/logo.png" alt="武庫川女子大学">
+    </div>
+
+    <table class="profile-info-table">
+      <tr>
+        <td>所属</td>
+        <td>武庫川女子大学 教育学部 教育学科</td>
+      </tr>
+      <tr>
+        <td>職位</td>
+        <td>教授</td>
+      </tr>
+      <tr>
+        <td>学位</td>
+        <td>博士（言語科学）<br>神戸松蔭女子学院大学大学院、2011</td>
+      </tr>
+      <tr>
+        <td>専門</td>
+        <td>言語学、英語学、英語教育</td>
+      </tr>
+      <tr>
+        <td>前職</td>
+        <td>九州国際大学 国際関係学部</td>
+      </tr>
+      <tr>
+        <td>所在</td>
+        <td>〒663-8558<br>兵庫県西宮市池開町6-46</td>
+      </tr>
+    </table>
+
+    <p style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:1rem;">所属学会・役職</p>
+    <ul class="society-list">
+      <li>日本言語学会</li>
+      <li>関西言語学会 — 大会委員</li>
+      <li>グローバル人材育成教育学会 — 関西支部長</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <p class="contact-eyebrow">Get in Touch</p>
+  <h2 class="contact-heading">Contact</h2>
+  <p class="contact-sub">研究に関するお問い合わせ・共同研究のご提案はメールにて</p>
+  <a href="mailto:hidakat@mukogawa-u.ac.jp" class="contact-email">hidakat[at]mukogawa-u.ac.jp</a>
+
+  <div class="contact-links">
+    <a href="https://researchmap.jp/ToshioHIDAKA" target="_blank" class="contact-link">researchmap</a>
+    <a href="https://www.mukogawa-u.ac.jp/gakuin/gyoseki/pdf/id_62190.pdf" target="_blank" class="contact-link">業績書 PDF</a>
+    <a href="https://www.mukogawa-u.ac.jp" target="_blank" class="contact-link">武庫川女子大学</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 Toshio Hidaka · 武庫川女子大学 教育学部</span>
+  <span>日高 俊夫 教授</span>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.research-card, .pub-item, .profile-text').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
